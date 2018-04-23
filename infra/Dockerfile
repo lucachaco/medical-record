@@ -40,4 +40,6 @@ WORKDIR home/
 
 RUN git clone https://github.com/lucachaco/medical-record 
 
-RUN export PATH=$PATH:/parity/target/release
+#RUN export PATH=$PATH:/parity/target/release
+
+#parity --force-ui --ui-interface all --jsonrpc-interface all --ws-interface all --ws-origins all --ws-hosts all
