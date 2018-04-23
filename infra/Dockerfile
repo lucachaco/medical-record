@@ -14,6 +14,8 @@ RUN git clone https://github.com/paritytech/parity
 
 WORKDIR /parity
 
+RUN pwd
+
 RUN  apt-get install -y build-essential
 
 RUN apt-get install -y libudev-dev
@@ -24,7 +26,7 @@ WORKDIR /
 
 RUN apt-get install -y python
 
-RUN apt-get install -y libssl-dev
+#RUN apt-get install -y libssl-dev
 
 RUN curl -sL https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh -o install_nvm.sh
 
@@ -34,13 +36,8 @@ RUN git clone https://github.com/parity-js/shell.git
 
 RUN apt-get install -y net-tools
 
-SHELL ["/bin/bash", "-c", "source ~/.profile"] 
+WORKDIR home/
 
-ADD demo-spec.json /home/
+RUN git clone https://github.com/lucachaco/medical-record 
 
-ADD node0.toml /home/
-
-ADD node1.toml /home/
-
-ADD node.pwds /home/
-
+RUN export PATH=$PATH:/parity/target/release
