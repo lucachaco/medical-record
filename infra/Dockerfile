@@ -8,6 +8,8 @@ RUN apt-get install -y curl
 
 RUN apt-get -y autoclean
 
+RUN apt-get install -y nano
+
 RUN curl https://sh.rustup.rs  --output rustup
 
 RUN sh rustup -y
